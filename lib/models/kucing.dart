@@ -1,4 +1,5 @@
 import 'hewan.dart';
+import '../exceptions/data_tidak_valid_exception.dart';
 
 class Kucing extends Hewan {
   String _ras;
@@ -22,17 +23,21 @@ class Kucing extends Hewan {
   String get warnaMata => _warnaMata;
 
   set ras(String value) {
-    if (value.trim().isEmpty) {
-      throw Exception("Ras kucing tidak boleh kosong");
-    }
-    _ras = value;
+  if (value.trim().isEmpty) {
+    throw DataTidakValidException(
+      "Ras kucing tidak boleh kosong",
+    );
+   }
+   _ras = value;
   }
 
   set warnaMata(String value) {
-    if (value.trim().isEmpty) {
-      throw Exception("Warna mata tidak boleh kosong");
-    }
-    _warnaMata = value;
+  if (value.trim().isEmpty) {
+    throw DataTidakValidException(
+      "Warna mata tidak boleh kosong",
+    );
+   }
+   _warnaMata = value;
   }
 
   @override
